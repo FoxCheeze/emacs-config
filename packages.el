@@ -18,12 +18,10 @@
 
 ;;; Packages
 ;; All the Icons
-(use-package all-the-icons
-  :ensure t)
+(use-package all-the-icons)
 
 ;; Auto Complete
 (use-package auto-complete
-  :ensure t
   :init
   (setq ac-delay 0.05)
   (progn
@@ -32,15 +30,21 @@
 
 ;; Company
 ;(use-package company
-  ;:ensure t
   ;:config
   ;(setq company-idle-delay 0)
   ;(setq company-minimum-prefix-length 1)
   ;(global-company-mode t))
 
+(use-package counsel
+  :bind
+  (("M-x" . counsel-M-x)
+  ("C-x b" . counsel-ibuffer)
+  ("C-x C-f" . counsel-find-file)
+    :map minibuffer-local-map
+    ("C-r" . counsel-minibuffer-history)))
+
 ;; Evil
 (use-package evil
-  :ensure t
   :init
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
@@ -51,14 +55,21 @@
 ;; Evil Collection (vim bidings everywhere)
 (use-package evil-collection
   :after evil
-  :ensure t
   :config
   (evil-collection-init))
 
 ;; Flycheck
 (use-package flycheck
-  :ensure t
   :init (global-flycheck-mode))
+
+;; Helpful
+(use-package helpful
+  :bind
+  (([remap describe-symbol] . helpful-symbol)
+   ([remap describe-variable] . counsel-describe-variable)
+   ([remap describe-function] . counsel-describe-function)
+   ([remap describe-key] . helpful-key)
+   ([remap describe-command] . helpful-command)))
 
 ;; Ivy
 (use-package ivy
@@ -80,24 +91,29 @@
 
 (ivy-mode 1)
 
+(use-package ivy-rich
+  :after ivy
+  :init
+  (ivy-rich-mode 1))
+
 ;; Mood Line
 (use-package mood-line
-  :ensure t
   :init (mood-line-mode 1))
+
+;; Rainbow Delimiters
+(use-package rainbow-delimiters
+  :init (rainbow-delimiters-mode))
 
 ;; Treemacs
 (use-package treemacs
-  :ensure t
   :defer t
   :bind (("C-c t" . 'treemacs)))
 
 (use-package treemacs-evil
-  :after (treemacs evil)
-  :ensure t)
+  :after (treemacs evil))
 
 ;; Which-key
 (use-package which-key
-  :ensure t
   :config (which-key-mode 1))
 
 ;;; Lsp
@@ -107,15 +123,23 @@
   (setq lsp-keymap-prefix "C-c l"))
 
 ;; GDScript
-(use-package gdscript-mode)
+(use-package gdscript-mode
+  :hook (gdscript-mode . (lambda ()
+                          (require 'gdscript-mode)
+                          (lsp))))
 
 ;; Python
 (use-package lsp-pyright
-  :ensure t
   :hook (python-mode . (lambda ()
                           (require 'lsp-pyright)
-                          (lsp-deferred))))  ; or lsp-deferred
+                          (lsp))))  ; or lsp-deferred
 ;;; Themes
-(use-package dracula-theme)
+(use-package doom-themes
+  :config
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic nil) ; if nil, italics is universally disabled
+
+  (setq doom-themes-treemacs-theme "doom-colors") ; use "doom-colors" for less minimal icon theme
+  (doom-themes-treemacs-config))
 
 
