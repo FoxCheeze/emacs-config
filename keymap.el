@@ -2,8 +2,8 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Buffer Switching
-(global-set-key (kbd "C-j") 'switch-to-prev-buffer)
-(global-set-key (kbd "C-k") 'switch-to-next-buffer)
+(global-set-key (kbd "C-J") 'switch-to-prev-buffer)
+(global-set-key (kbd "C-K") 'switch-to-next-buffer)
 
 ;; Buffer Killing
 (global-set-key (kbd "C-c k b") 'kill-this-buffer)
