@@ -21,19 +21,19 @@
 (use-package all-the-icons)
 
 ;; Auto Complete
-(use-package auto-complete
-  :init
-  (setq ac-delay 0.05)
-  (progn
-    (ac-config-default)
-    (global-auto-complete-mode t)))
+;; (use-package auto-complete
+;;   :init
+;;   (setq ac-delay 0.05)
+;;   (progn
+;;     (ac-config-default)
+;;     (global-auto-complete-mode nil)))
 
 ;; Company
-;(use-package company
-  ;:config
-  ;(setq company-idle-delay 0)
-  ;(setq company-minimum-prefix-length 1)
-  ;(global-company-mode t))
+(use-package company
+  :config
+  (setq company-idle-delay 0.05)
+  (setq company-minimum-prefix-length 1)
+  (global-company-mode t))
 
 (use-package counsel
   :bind

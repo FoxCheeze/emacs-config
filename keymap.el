@@ -2,8 +2,8 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Buffer Switching
-(global-set-key (kbd "C-J") 'switch-to-prev-buffer)
-(global-set-key (kbd "C-K") 'switch-to-next-buffer)
+(global-set-key (kbd "C-M-j") 'switch-to-prev-buffer)
+(global-set-key (kbd "C-M-k") 'switch-to-next-buffer)
 
 ;; Buffer Killing
 (global-set-key (kbd "C-c k b") 'kill-this-buffer)
@@ -18,7 +18,7 @@
 (global-set-key (kbd "C-c k w") 'delete-window)
 
     
-;;; Package depended
+;;; Package dependent
 ;; (define-key evil-normal-state-map (kbd ">") 'evil-shift-right-line)
 ;; (define-key evil-normal-state-map (kbd "<") 'evil-shift-left-line)
 

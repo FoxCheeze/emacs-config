@@ -26,6 +26,6 @@
 (setq modus-themes-syntax '(alt-syntax))
 
 
-(load-theme 'doom-dracula t)
+(load-theme 'doom-moonlight t)
 
 ;; (load-theme 'modus-vivendi t)
