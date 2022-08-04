@@ -46,6 +46,8 @@
 ;; Evil
 (use-package evil
   :init
+  (setq evil-want-C-h-delete t)
+  (setq evil-want-C-u-scroll t)
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
   (setq evil-undo-system 'undo-redo)
@@ -61,6 +63,15 @@
 ;; Flycheck
 (use-package flycheck
   :init (global-flycheck-mode))
+
+;; General
+(use-package general
+  :after which-key
+  :config
+  (general-create-definer fox/space-leader-keys
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC"))
 
 ;; Helpful
 (use-package helpful
@@ -106,8 +117,7 @@
 
 ;; Treemacs
 (use-package treemacs
-  :defer t
-  :bind (("C-c t" . 'treemacs)))
+  :defer t)
 
 (use-package treemacs-evil
   :after (treemacs evil))
