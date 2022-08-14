@@ -1,0 +1,46 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/Projects/Games/Studies/Godot/" . "Hana/")
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/Projects/Games/Studies/" . "Godot/")
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/Projects/Games/" . "Studies/")
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/TechnoTron/Rain/" . "Player/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/iago-carvalho/.config/emacs/"
+ "/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/TechnoTron/Rain/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "keymap.el"
+ "packages.el"
+ ".gitignore"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/Projects/Games/Studies/Godot/Hana/" (25334 26176 941069 700000) "src/" "scenes/" "project.godot" "icon.png.import" "icon.png" "Hana.sln" "Hana.csproj" "default_env.tres" "assets/" ".mono/" ".import/" ".gitignore" ".git/" "../" "./")
+
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/Projects/Games/Studies/Godot/" (25217 5933 940563 600000) "Old Projects/" "Kosame - Light Rain/" "Hana/" "../" "./")
+
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/Projects/Games/Studies/" (25217 5818 636759 200000) "Lua/" "Kyoufu no Zetsubou/" "Godot/" "Generic Assets/" "Drizzle/" "C++/" "../" "./")
+
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/Projects/Games/" (25250 23854 601496 400000) "解放 (Kaihou)/" "Throjan/" "Studies/" "Saim Nazistas!/" "Saiam Nazistas Remaster/" "Obra/" "Neon Basketball/" "Bomberineo ultra adventures/" "../" "./")
+
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/Projects/Games/Throjan/" (25320 5754 156574 600000) "Throjan.sln" "Throjan.csproj" "src/" "sfx/" "scenes/" "project.godot" "music/" "mono_crash.0.0.json" "icon.png.import" "icon.png" "fonts/" "export_presets.cfg" "default_env.tres" "assets/" ".vscode/" ".txt/" ".mono/" ".import/" ".gitignore" ".git/" "../" "./")
+
+ ("/home/iago-carvalho/.config/emacs/" (25325 31873 487005 481000) ".lsp-session-v1" "transient/" "auto-save-files/" "history" "ido.last" "../" ".gitignore" "elpa/" "LICENSE" "packages.el" "editing.el" "eshell/" ".#keymap.el" "keymap.el" ".directory" "auto-save-list/" ".cache/" ".git/" "./" "mini-buffer.el" "custom-vars.el" "init.el" "theme.el" "ac-comphist.dat" "buffer.el" "ui.el" "recentf")
+
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/TechnoTron/Rain/Reusable/Systems/Scripts/" (25273 50760 668796 500000) "MovementSystem.gd" "InvencibilitySystem.gd" "HealthSystem.gd" "CombatSystem.gd" "../" "./")
+
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/TechnoTron/Rain/" (25325 29116 544202 400000) "Reusable/" "README.md" "Projetos PixelArt/" "project.godot" "Player/" "icon.png.import" "icon.png" "Fases/" "Drizzle.sln" "Drizzle.csproj" "default_env.tres" "DEBUG/" ".mono/" ".import/" ".gitignore" ".git/" "../" "./")
+
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/TechnoTron/Rain/Player/" (25287 13598 670055 400000) "Scripts/" "Player.tscn" "M.ya.png.import" "M.ya.png" "M.ya.ase" "LyaSprite.png.import" "LyaSprite.png" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

@@ -17,16 +17,9 @@
 (setq use-package-always-ensure t)
 
 ;;; Packages
+
 ;; All the Icons
 (use-package all-the-icons)
-
-;; Auto Complete
-;; (use-package auto-complete
-;;   :init
-;;   (setq ac-delay 0.05)
-;;   (progn
-;;     (ac-config-default)
-;;     (global-auto-complete-mode nil)))
 
 ;; Company
 (use-package company
@@ -35,6 +28,7 @@
   (setq company-minimum-prefix-length 1)
   (global-company-mode t))
 
+;; Counsel
 (use-package counsel
   :bind
   (("M-x" . counsel-M-x)
@@ -59,6 +53,28 @@
   :after evil
   :config
   (evil-collection-init))
+
+;; Ffip
+(use-package find-file-in-project)
+
+;; Flx
+(use-package flx)
+
+(use-package company-flx
+  :after (company flx))
+    (with-eval-after-load 'company
+    (company-flx-mode +1))
+
+(use-package flx-ido
+  :after flx)
+
+    (require 'flx-ido)
+    (ido-mode 1)
+    (ido-everywhere 1)
+    (flx-ido-mode 1)
+    ;; disable ido faces to see flx highlights.
+    (setq ido-enable-flex-matching t)
+    (setq ido-use-faces nil)
 
 ;; Flycheck
 (use-package flycheck
@@ -111,16 +127,23 @@
 (use-package mood-line
   :init (mood-line-mode 1))
 
-;; Rainbow Delimiters
-(use-package rainbow-delimiters
-  :init (rainbow-delimiters-mode))
-
 ;; Treemacs
 (use-package treemacs
   :defer t)
 
 (use-package treemacs-evil
   :after (treemacs evil))
+
+;; Treesitter
+(use-package tree-sitter
+  :config
+  (global-tree-sitter-mode))
+
+(use-package tree-sitter-indent)
+(use-package tree-sitter-langs)
+
+;; Vterm
+(use-package vterm)
 
 ;; Which-key
 (use-package which-key
@@ -132,17 +155,31 @@
   :init
   (setq lsp-keymap-prefix "C-c l"))
 
+;; C#
+(use-package csharp-mode
+  :mode "\\.cs\\'"
+  :config
+  (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode))
+  :hook (csharp-mode . lsp-deferred))
+
 ;; GDScript
 (use-package gdscript-mode
-  :hook (gdscript-mode . (lambda ()
-                          (require 'gdscript-mode)
-                          (lsp))))
+  :mode "\\.gd\\'"
+  :hook (gdscript-mode . lsp-deferred))
 
 ;; Python
-(use-package lsp-pyright
-  :hook (python-mode . (lambda ()
-                          (require 'lsp-pyright)
-                          (lsp))))  ; or lsp-deferred
+(use-package python-mode
+  :mode "\\.py\\'"
+  :hook (python-mode . lsp-deferred))  ; or lsp-deferred
+  
+
+;; (use-package lsp-pyright)
+
+;; Rust
+(use-package rustic
+  :mode "\\.rs\\'"
+  :hook (rustic-mode . lsp-deferred))
+
 ;;; Themes
 (use-package doom-themes
   :config

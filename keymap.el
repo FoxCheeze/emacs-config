@@ -14,7 +14,7 @@
 (fox/space-leader-keys
   ; Find
   "f" '(:ignore t :which-key "find")
-    "ff" '(find-file :which-key "file")
+    "ff" '(ffip :which-key "file")
 
   ; Flycheck
   "F" '(:ignore t :which-key "flycheck")
@@ -32,14 +32,18 @@
     "kb" '(kill-this-buffer :which-key "this-buffer")
     "kw" '(delete-window :which-key "this-window")
 
+  ; Switch
+  "s" '(:ignore t :which-key "switch")
+    "sf" '(switch-to-buffer :which-key "buffer")
+    
+  ; Terminal
+  "t" '(:ignore t :which-key "terminal")
+    "to" '(vterm :which-key "open")
+    
   ; Treemacs
   "T" '(treemacs :which-key "treemacs"))
 
     
-;;; Package dependent
-;; (define-key evil-normal-state-map (kbd ">") 'evil-shift-right-line)
-;; (define-key evil-normal-state-map (kbd "<") 'evil-shift-left-line)
-
 ;; Tab key insert tabs
 ;; (global-set-key [tab] 'tab-to-tab-stop)
 ;; (global-set-key (kbd "TAB") 'tab-to-tab-stop)
