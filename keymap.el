@@ -11,6 +11,12 @@
 ;; Window Switching
 (global-set-key (kbd "C-<tab>") 'other-window)
 
+;; Window Sizing
+(define-key evil-normal-state-map (kbd "C-<up>") 'enlarge-window)
+(define-key evil-normal-state-map (kbd "C-<down>") 'shrink-window)
+(define-key evil-normal-state-map (kbd "C-<right>") 'enlarge-window-horizontally)
+(define-key evil-normal-state-map (kbd "C-<left>") 'shrink-window-horizontally)
+
 (fox/space-leader-keys
   ; Find
   "f" '(:ignore t :which-key "find")
@@ -39,6 +45,12 @@
   ; Terminal
   "t" '(:ignore t :which-key "terminal")
     "to" '(vterm :which-key "open")
+    "ts" '(lambda ()
+		(interactive)
+		(split-window-below)
+		(other-window 1)
+		(vterm)
+	    :which-key "split-open")
     
   ; Treemacs
   "T" '(treemacs :which-key "treemacs"))

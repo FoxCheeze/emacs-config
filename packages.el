@@ -5,6 +5,7 @@
 ;; Repositiories
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
 
 (package-initialize)
 
@@ -23,10 +24,18 @@
 
 ;; Company
 (use-package company
+  :after lsp-mode
   :config
   (setq company-idle-delay 0.05)
   (setq company-minimum-prefix-length 1)
-  (global-company-mode t))
+  (global-company-mode t)
+  :bind (:map company-active-map
+	      ("<tab>" . company-complete-selection))
+  :hook (lsp-mode . company-mode))
+
+(use-package company-box
+  :after company
+  :hook (company-mode . company-box-mode))
 
 ;; Counsel
 (use-package counsel
@@ -127,6 +136,36 @@
 (use-package mood-line
   :init (mood-line-mode 1))
 
+;; Org Mode
+;; Set faces for heading levels
+(dolist (face '((org-level-1 . 1.6)
+		(org-level-2 . 1.1)
+		(org-level-3 . 1.05)
+		(org-level-4 . 1.0)
+		(org-level-5 . 1.1)
+		(org-level-6 . 1.1)
+		(org-level-7 . 1.1)
+		(org-level-8 . 1.1))))
+
+(use-package org
+  :hook (org-mode . efs/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾"))
+
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+(defun efs/org-mode-visual-fill ()
+  (setq visual-fill-column-width 100
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :hook (org-mode . efs/org-mode-visual-fill))
+
 ;; Treemacs
 (use-package treemacs
   :defer t)
@@ -160,25 +199,25 @@
   :mode "\\.cs\\'"
   :config
   (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode))
-  :hook (csharp-mode . lsp-deferred))
+  :hook (csharp-mode . lsp))
 
 ;; GDScript
 (use-package gdscript-mode
   :mode "\\.gd\\'"
-  :hook (gdscript-mode . lsp-deferred))
+  :hook (gdscript-mode . lsp))
 
 ;; Python
 (use-package python-mode
   :mode "\\.py\\'"
-  :hook (python-mode . lsp-deferred))  ; or lsp-deferred
+  :hook (python-mode . lsp))  ; or lsp-deferred
   
 
 ;; (use-package lsp-pyright)
 
 ;; Rust
 (use-package rustic
-  :mode "\\.rs\\'"
-  :hook (rustic-mode . lsp-deferred))
+  :config
+  (require 'lsp-rust))
 
 ;;; Themes
 (use-package doom-themes
