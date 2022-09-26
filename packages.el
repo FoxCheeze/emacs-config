@@ -132,6 +132,11 @@
   :init
   (ivy-rich-mode 1))
 
+;; Markdown
+(use-package markdown-mode
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
+
 ;; Mood Line
 (use-package mood-line
   :init (mood-line-mode 1))
@@ -206,13 +211,19 @@
   :mode "\\.gd\\'"
   :hook (gdscript-mode . lsp))
 
+;; Haskell
+(use-package haskell-mode
+  :mode "\\.hs\\'"
+  :hook (haskell-mode . lsp))
+
+(use-package lsp-haskell)
+
 ;; Python
 (use-package python-mode
   :mode "\\.py\\'"
   :hook (python-mode . lsp))  ; or lsp-deferred
   
-
-;; (use-package lsp-pyright)
+(use-package lsp-pyright)
 
 ;; Rust
 (use-package rustic

@@ -23,6 +23,10 @@
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/Notes/to be a better version of my self/" (25366 50827 574067 0) "2022.09.05.org" "2022.09.04.org" "2022.09.03.org" "2022.09.02.org" "2022.09.01.org" "2022.08.mp3" "2022.08.31.org" "2022.08.30.org" "2022.08.29.org" "2022.08.26.org" "2022.08.25.org" "2022.08.24.org" "2022.08.23.org" "2022.08.22 - BETA.org_archive" "2022.08.22 - BETA.org" ".#2022.09.06.org" ".#2022.09.05.org" "../" "./")
+
+ ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/Projects/Development/Studies/python/image-bouncer/" (25347 38912 575722 900000) "main.py" "../" "./")
+
  ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/Projects/Development/GUI-number-generator/" (25346 37579 895892 100000) "../" "./")
 
  ("/run/media/iago-carvalho/Storage/Personal/Iago Damasceno/Projects/Games/Saiam Nazistas Remaster/fonts/" (24952 25499 230199 600000) "dogicapixel.ttf" "../" "./")

@@ -26,6 +26,6 @@
 (setq modus-themes-syntax '(alt-syntax))
 
 
-(load-theme 'doom-vibrant t)
+(load-theme 'doom-Iosvkem t)
 
 ;; (load-theme 'modus-vivendi t)
