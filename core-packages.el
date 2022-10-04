@@ -22,7 +22,8 @@
 ;; All the Icons
 (use-package all-the-icons)
 
-;; Company
+;;; Company
+;; Autocomplete framework for text and LSP
 (use-package company
   :after lsp-mode
   :config
@@ -33,11 +34,13 @@
 	      ("<tab>" . company-complete-selection))
   :hook (lsp-mode . company-mode))
 
+; Company style improvement
 (use-package company-box
   :after company
   :hook (company-mode . company-box-mode))
 
-;; Counsel
+;;; Counsel
+;; Improved emacs functionalities eg: find-file
 (use-package counsel
   :bind
   (("M-x" . counsel-M-x)
@@ -46,7 +49,8 @@
     :map minibuffer-local-map
     ("C-r" . counsel-minibuffer-history)))
 
-;; Evil
+;;; Evil
+;; Vim emulation layer
 (use-package evil
   :init
   (setq evil-want-C-h-delete t)
@@ -57,39 +61,23 @@
   :config
   (evil-mode 1))
 
-;; Evil Collection (vim bidings everywhere)
+; Evil Collection makes vim bidings work everywhere
 (use-package evil-collection
   :after evil
   :config
   (evil-collection-init))
 
-;; Ffip
+;;; Ffip
+;; Recursive file finder (it search into the subfolders)
 (use-package find-file-in-project)
 
-;; Flx
-(use-package flx)
-
-(use-package company-flx
-  :after (company flx))
-    (with-eval-after-load 'company
-    (company-flx-mode +1))
-
-(use-package flx-ido
-  :after flx)
-
-    (require 'flx-ido)
-    (ido-mode 1)
-    (ido-everywhere 1)
-    (flx-ido-mode 1)
-    ;; disable ido faces to see flx highlights.
-    (setq ido-enable-flex-matching t)
-    (setq ido-use-faces nil)
-
-;; Flycheck
+;;; Flycheck
+;; Code error chcker for LSP
 (use-package flycheck
   :init (global-flycheck-mode))
 
-;; General
+;;; General
+;; Helper to manage keybidings with a leader key
 (use-package general
   :after which-key
   :config
@@ -98,7 +86,8 @@
     :prefix "SPC"
     :global-prefix "C-SPC"))
 
-;; Helpful
+;;; Helpful
+;; Imroved help pages for emacs
 (use-package helpful
   :bind
   (([remap describe-symbol] . helpful-symbol)
@@ -107,7 +96,8 @@
    ([remap describe-key] . helpful-key)
    ([remap describe-command] . helpful-command)))
 
-;; Ivy
+;;; Ivy
+;; better minibuffer completition
 (use-package ivy
   :bind (("C-s" . swiper)
     :map ivy-minibuffer-map
@@ -127,116 +117,36 @@
 
 (ivy-mode 1)
 
+; Enhaced completitions
 (use-package ivy-rich
   :after ivy
   :init
   (ivy-rich-mode 1))
 
-;; Markdown
-(use-package markdown-mode
-  :mode ("README\\.md\\'" . gfm-mode)
-  :init (setq markdown-command "multimarkdown"))
-
-;; Mood Line
+;;; Mood Line
+;; Simple and clean status line
 (use-package mood-line
   :init (mood-line-mode 1))
 
-;; Org Mode
-;; Set faces for heading levels
-(dolist (face '((org-level-1 . 1.6)
-		(org-level-2 . 1.1)
-		(org-level-3 . 1.05)
-		(org-level-4 . 1.0)
-		(org-level-5 . 1.1)
-		(org-level-6 . 1.1)
-		(org-level-7 . 1.1)
-		(org-level-8 . 1.1))))
-
-(use-package org
-  :hook (org-mode . efs/org-mode-setup)
-  :config
-  (setq org-ellipsis " ▾"))
-
-(use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
-
-(defun efs/org-mode-visual-fill ()
-  (setq visual-fill-column-width 100
-        visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))
-
-(use-package visual-fill-column
-  :hook (org-mode . efs/org-mode-visual-fill))
-
-;; Treemacs
-(use-package treemacs
-  :defer t)
-
-(use-package treemacs-evil
-  :after (treemacs evil))
-
-;; Treesitter
+;;; Treesitter
+;; Better systax highlight for coding
 (use-package tree-sitter
   :config
   (global-tree-sitter-mode))
 
 (use-package tree-sitter-indent)
+; languages grammar bundle
 (use-package tree-sitter-langs)
 
-;; Vterm
-(use-package vterm)
-
-;; Which-key
+;;; Which-key
+;; Graphical helper for key bidings with leader keys
 (use-package which-key
   :config (which-key-mode 1))
 
 ;;; Lsp
+;; Language Server Protocal support for intelisense
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l"))
-
-;; C#
-(use-package csharp-mode
-  :mode "\\.cs\\'"
-  :config
-  (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode))
-  :hook (csharp-mode . lsp))
-
-;; GDScript
-(use-package gdscript-mode
-  :mode "\\.gd\\'"
-  :hook (gdscript-mode . lsp))
-
-;; Haskell
-(use-package haskell-mode
-  :mode "\\.hs\\'"
-  :hook (haskell-mode . lsp))
-
-(use-package lsp-haskell)
-
-;; Python
-(use-package python-mode
-  :mode "\\.py\\'"
-  :hook (python-mode . lsp))  ; or lsp-deferred
-  
-(use-package lsp-pyright)
-
-;; Rust
-(use-package rustic
-  :config
-  (require 'lsp-rust))
-
-;;; Themes
-(use-package doom-themes
-  :config
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic nil) ; if nil, italics is universally disabled
-
-  (setq doom-themes-treemacs-theme "doom-colors") ; use "doom-colors" for less minimal icon theme
-  (doom-themes-treemacs-config))
-
 

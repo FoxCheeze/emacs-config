@@ -1,5 +1,27 @@
-;;; Theme
+;;; Themes
 
+;; Ui
+(setq inhibit-startup-message t)
+
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+
+;; Buffer
+(blink-cursor-mode -1)
+(global-display-line-numbers-mode 1)
+
+;; Color Themes
+(use-package doom-themes
+  :config
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic nil) ; if nil, italics is universally disabled
+
+  (setq doom-themes-treemacs-theme "doom-colors") ; use "doom-colors" for less minimal icon theme
+  (doom-themes-treemacs-config))
+
+
+;;; Modus-vivendi
 ;; Completions
 (setq modus-themes-completions '(minimal))
 
@@ -28,4 +50,3 @@
 
 (load-theme 'doom-Iosvkem t)
 
-;; (load-theme 'modus-vivendi t)
